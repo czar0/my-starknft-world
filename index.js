@@ -164,7 +164,7 @@ await provider.waitForTransaction(mintTxHash);
 ====================================
 */
 
-const infuraIpfsGateway = process.env.INFURA_IPFS_GATEWAY_ENDPOINT;
+const infuraIpfsGateway = process.env.INFURA_IPFS_GATEWAY_ENDPOINT + "/ipfs/";
 const infuraIpfsIdAndSecret = `${process.env.INFURA_IPFS_PROJECT_ID}:${process.env.INFURA_IPFS_SECRET}`;
 // Feel free to replace this URL with any image you like on the web - by default we set it to be our logo ❤️
 const imageUrl = process.env.NFT_IMAGE_URL;
