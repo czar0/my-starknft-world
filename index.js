@@ -142,8 +142,20 @@ let totalSupply = await erc721.totalSupply();
 totalSupply = parseInt(shortString.decodeShortString(uint256.bnToUint256(totalSupply[0].low).low));
 console.log("Total supply", totalSupply);
 
+// Print all minted token IDs
+console.log(`Printing all minted token IDs by index...`);
+for (let i = 0; i < totalSupply; i++) {
+  let value = uint256.bnToUint256(i);
+  let tid = await erc721.tokenByIndex([value.low, value.high]);
+  tid = (tid[0].low).toString();
+  tid = tid.substr(0, tid.length - 18);
+  console.log("Token ID:", tid);
+}
+
+// Generate the next incremental token id
+const tokenId = totalSupply + 1;
+
 // Mint 1 NFT with tokenId to accountAddress
-const tokenId = 1;
 const value = uint256.bnToUint256(tokenId + "000000000000000000");
 console.log(
   `Invoke Tx - Minting NFT with tokenId ${tokenId} to ${accountAddress} ...`
