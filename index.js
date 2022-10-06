@@ -136,6 +136,12 @@ const erc721 = new Contract(compiledErc721.abi, erc721Address, provider);
 // Connect the current account to execute transactions
 erc721.connect(account);
 
+// Retrieve total supply number
+console.log(`Retrieving total NFT supply number...`);
+let totalSupply = await erc721.totalSupply();
+totalSupply = parseInt(shortString.decodeShortString(uint256.bnToUint256(totalSupply[0].low).low));
+console.log("Total supply", totalSupply);
+
 // Mint 1 NFT with tokenId to accountAddress
 const tokenId = 1;
 const value = uint256.bnToUint256(tokenId + "000000000000000000");
