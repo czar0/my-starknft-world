@@ -4,13 +4,14 @@
   "description": "Create Your First NFT with Infura and StarkNet",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Cesare Valitutto",
   "dependencies": {
     "dotenv": "^16.0.2",
     "ipfs-http-client": "^58.0.0",
-    "starknet": "^4.6.0"
+    "starknet": "4.6.0"
   },
   "type": "module"
 }
